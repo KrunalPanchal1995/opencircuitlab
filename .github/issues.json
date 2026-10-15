@@ -1,0 +1,79 @@
+[
+  {
+    "title": "Fix typos and unclear sentences in the Session 1 notes",
+    "labels": [
+      "good first issue",
+      "beginner",
+      "documentation"
+    ],
+    "body": "## Problem\nThe Session 1 notes may contain typos or sentences that a first-year student finds confusing.\n\n## Context\nBeginners judge the whole repo by Session 1.\n\n## Expected outcome\nA clearer `sessions/session-01/README.md` and `lesson.py` comments.\n\n## Relevant files\n`sessions/session-01/README.md`, `sessions/session-01/lesson.py`\n\n## Acceptance criteria\n- [ ] At least three improvements\n- [ ] `python start.py test` still passes\n\n## Difficulty\nbeginner"
+  },
+  {
+    "title": "Add a real-bulb model to Session 1: resistance that rises with temperature",
+    "labels": [
+      "beginner",
+      "feature"
+    ],
+    "body": "## Problem\nSession 1 treats a bulb as a fixed 10 ohm resistor; a real filament's resistance rises several times when hot.\n\n## Context\nThe Session 1 experiment already warns that real bulbs differ from the model.\n\n## Expected outcome\nAn optional function `hot_bulb_current(v)` with a simple resistance that rises with the power in the bulb, a short note in the README, and a comparison figure.\n\n## Relevant files\n`sessions/session-01/lesson.py`, `sessions/session-01/README.md`\n\n## Acceptance criteria\n- [ ] The checkpoint still passes\n- [ ] The new figure shows the current at switch-on and after warm-up\n\n## Difficulty\nbeginner"
+  },
+  {
+    "title": "Add Session 4: a netlist reader",
+    "labels": [
+      "intermediate",
+      "feature"
+    ],
+    "body": "## Problem\nThe roadmap's first milestone does not exist yet: circuits are described by Python lists.\n\n## Context\nSee `promo/roadmap.md`, Session 4. Real simulators read text netlists such as 'R1 1 2 1k'.\n\n## Expected outcome\n`sessions/session-04/` with README (sections A to F), lesson, checkpoint, exercises and app in the same style as Sessions 1 to 3.\n\n## Relevant files\n`promo/roadmap.md`, `sessions/session-03/lesson.py`\n\n## Acceptance criteria\n- [ ] The text form of the two-loop circuit gives V_A = 6.545 V\n- [ ] Added to the tests\n\n## Difficulty\nintermediate"
+  },
+  {
+    "title": "Add Session 5: a diode and Newton's method",
+    "labels": [
+      "intermediate",
+      "feature"
+    ],
+    "body": "## Problem\nSession 3 solves only linear networks.\n\n## Context\nRoadmap milestone 2. Nonlinear parts need an iteration around the linear solver.\n\n## Expected outcome\nA lesson and app where a diode and a resistor are solved by Newton's method, with the load line picture.\n\n## Relevant files\n`sessions/session-03/lesson.py`, `promo/roadmap.md`\n\n## Acceptance criteria\n- [ ] KCL residual below 1e-9 A in at most 10 iterations\n- [ ] Checkpoint added\n\n## Difficulty\nintermediate"
+  },
+  {
+    "title": "Reproduce the Target: an animated schematic with a Thevenin load line",
+    "labels": [
+      "advanced",
+      "feature"
+    ],
+    "body": "## Problem\nThe Target animation sweeps a bridge resistor and redraws node voltages, branch currents and a Thevenin load line; there is no public implementation.\n\n## Context\nThe code behind the Target is private on purpose. The roadmap gives the path.\n\n## Expected outcome\nYour own implementation, written from the roadmap, plus an animation like the Target.\n\n## Relevant files\n`promo/roadmap.md`\n\n## Acceptance criteria\n- [ ] Node voltages agree with `solve_network` to 1e-9 V in every frame\n- [ ] Short write-up of your method\n\n## Difficulty\nadvanced"
+  },
+  {
+    "title": "Translate the Session 1 notes into Hindi",
+    "labels": [
+      "good first issue",
+      "beginner",
+      "documentation"
+    ],
+    "body": "## Problem\nStudents who prefer Hindi cannot read Session 1 comfortably.\n\n## Context\nThis project teaches first- and second-year students across India; translations widen who can join.\n\n## Expected outcome\n`sessions/session-01/README.hi.md` with a faithful Hindi translation of sections A to F, linked from the main README.\n\n## Relevant files\n`sessions/session-01/README.md`\n\n## Acceptance criteria\n- [ ] All sections translated\n- [ ] Equations, code blocks and file names unchanged\n- [ ] Link added to the main README\n\n## Difficulty\nbeginner"
+  },
+  {
+    "title": "Translate the Session 1 notes into Telugu",
+    "labels": [
+      "good first issue",
+      "beginner",
+      "documentation"
+    ],
+    "body": "## Problem\nStudents who prefer Telugu cannot read Session 1 comfortably.\n\n## Context\nThis project teaches first- and second-year students across India; translations widen who can join.\n\n## Expected outcome\n`sessions/session-01/README.te.md` with a faithful Telugu translation of sections A to F, linked from the main README.\n\n## Relevant files\n`sessions/session-01/README.md`\n\n## Acceptance criteria\n- [ ] All sections translated\n- [ ] Equations, code blocks and file names unchanged\n- [ ] Link added to the main README\n\n## Difficulty\nbeginner"
+  },
+  {
+    "title": "Translate the Session 1 notes into Tamil",
+    "labels": [
+      "good first issue",
+      "beginner",
+      "documentation"
+    ],
+    "body": "## Problem\nStudents who prefer Tamil cannot read Session 1 comfortably.\n\n## Context\nThis project teaches first- and second-year students across India; translations widen who can join.\n\n## Expected outcome\n`sessions/session-01/README.ta.md` with a faithful Tamil translation of sections A to F, linked from the main README.\n\n## Relevant files\n`sessions/session-01/README.md`\n\n## Acceptance criteria\n- [ ] All sections translated\n- [ ] Equations, code blocks and file names unchanged\n- [ ] Link added to the main README\n\n## Difficulty\nbeginner"
+  },
+  {
+    "title": "Translate the Session 1 notes into Malayalam",
+    "labels": [
+      "good first issue",
+      "beginner",
+      "documentation"
+    ],
+    "body": "## Problem\nStudents who prefer Malayalam cannot read Session 1 comfortably.\n\n## Context\nThis project teaches first- and second-year students across India; translations widen who can join.\n\n## Expected outcome\n`sessions/session-01/README.ma.md` with a faithful Malayalam translation of sections A to F, linked from the main README.\n\n## Relevant files\n`sessions/session-01/README.md`\n\n## Acceptance criteria\n- [ ] All sections translated\n- [ ] Equations, code blocks and file names unchanged\n- [ ] Link added to the main README\n\n## Difficulty\nbeginner"
+  }
+]
