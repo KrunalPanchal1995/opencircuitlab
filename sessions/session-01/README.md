@@ -19,10 +19,10 @@
 - Relate the brightness of a bulb to the power in it.
 
 ## A. Real-world problem
-Old festival lights were wired in one long chain: when one bulb burned out, the whole string went dark, and when you added more bulbs, all of them got dimmer. A torch with two bulbs on the same battery behaves differently. Why does the same battery make bulbs glow dim in one wiring and bright in another, and what does the battery pay for the brightness? (Low-voltage educational circuits only: never experiment with mains electricity.)
+Old festival lights were wired in one long chain: when one bulb burned out, the whole string went dark, and when you added more bulbs, all of them got dimmer. A torch with two bulbs wired side by side on the same battery behaves differently. Why does the same battery make bulbs glow dim in one wiring and bright in another, and what does the battery pay for the brightness? (Low-voltage educational circuits only: never experiment with mains electricity.)
 
 ## B. Concept and theory
-A battery pushes charge round a closed loop. In a series chain there is only one path, so the same current passes through every bulb, one after another; the resistances add up and the battery voltage is shared between the bulbs. In a parallel bank every bulb is connected straight across the battery, so each gets the full voltage and carries its own current; the battery has to supply all those currents together. Power in a bulb is P = V I = I^2 R = V^2 / R, and we take brightness to be proportional to it. A switch is just a gap: open means no loop and no current.
+A battery pushes charge round a closed loop. In a series chain there is only one path, so the same current passes through every bulb, one after another; the resistances add up and the battery voltage is shared between the bulbs. In a parallel bank every bulb is connected straight across the battery, so each gets the full voltage and carries its own current; the battery has to supply all those currents together. Power in a bulb is P = V I = I^2 R = V^2 / R, where V is the voltage across that bulb (in a series chain, only a share of the battery voltage), and we take brightness to be proportional to it. A switch is just a gap: open means no loop and no current.
 
 | Symbol | Meaning | Unit |
 |---|---|---|
@@ -89,6 +89,7 @@ A current needs a closed loop. How many loops are there in each wiring?
 In a series string there is only one path for the current. A broken filament is a gap in that path, so the current is zero everywhere and every bulb goes dark. In a parallel string each bulb has its own path straight across the battery. A gap in one path does not affect the others, so they keep their full voltage and stay lit (the battery just supplies a little less current).
 
 </details>
+
 **Question type B: Numerical.** A 9 V battery feeds three 10 ohm bulbs. Find the current and the power in each bulb for the series wiring and for the parallel wiring.
 
 <details>
@@ -104,6 +105,7 @@ Series: R_total = N R. Parallel: each bulb has the full 9 V. Then P = V I.
 Series: R_total = 30 ohm, I = 9 / 30 = 0.3 A, each bulb gets 3 V and P = 3 * 0.3 = 0.9 W. Parallel: each bulb gets 9 V, I per bulb = 0.9 A, P = 9 * 0.9 = 8.1 W, battery current 2.7 A. Sanity check: parallel is 9 times brighter than series for 3 bulbs (N^2 = 9), and 0.9 * 9 = 8.1.
 
 </details>
+
 **Question type C: Graph and simulation interpretation.** On the brightness graph at 6 V, how many times dimmer is each bulb for 4 bulbs in series than for 4 bulbs in parallel? Read the two values from the curves.
 
 <details>
@@ -119,6 +121,7 @@ Find the blue and green curves at N = 4.
 At N = 4 the green (parallel) curve is at 3.6 W and the blue (series) curve at 0.225 W. The ratio is 3.6 / 0.225 = 16 = N^2. The blue curve falls like 1 / N^2, the green one is flat.
 
 </details>
+
 **Question type D: Design and optimisation challenge.** Design: a small 6 V battery can supply at most 1 A. You must light three 10 ohm bulbs and want each to get at least 0.3 W. Compare three wirings: all series, all parallel, and one bulb in series with a parallel pair. Which are allowed, and which would you choose?
 
 <details>
@@ -150,7 +153,7 @@ Score yourself with [RUBRIC.md](../../RUBRIC.md). Print the [activity sheet](act
 - **parallel**: components connected side by side, each straight across the same two points
 - **current (I)**: the flow of charge, measured in amperes (A)
 - **voltage (V)**: the push that drives the current, measured in volts (V)
-- **resistance (R)**: how strongly a part opposes the current, in ohm
+- **resistance (R)**: how strongly a part opposes the current, in ohms
 - **power (P)**: energy per second turned into heat and light, in watts (W)
 
 ## Finish
