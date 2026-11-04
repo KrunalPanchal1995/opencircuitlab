@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Session 1: bulbs in series and in parallel</title>
 <style>
-  :root { --bg:#ffffff; --fg:#14181f; --muted:#5b6472; --card:#f3f5f8; --accent:#1f6feb; --good:#1a7f37; --bad:#b42318; --line:#d7dce3; }
-  @media (prefers-color-scheme: dark) { :root { --bg:#0e1116; --fg:#e6e9ee; --muted:#9aa3b2; --card:#171b22; --accent:#58a6ff; --good:#3fb950; --bad:#f97066; --line:#2a313c; } }
+  :root { --bg:#ffffff; --fg:#14181f; --muted:#5b6472; --card:#f3f5f8; --accent:#003f7f; --good:#c86a00; --bad:#d81b60; --line:#d7dce3; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#0e1116; --fg:#e6e9ee; --muted:#9aa3b2; --card:#171b22; --accent:#3b8fe0; --good:#ffc857; --bad:#e0457b; --line:#2a313c; } }
   * { box-sizing: border-box; }
   body { margin:0; padding:16px; background:var(--bg); color:var(--fg); font:16px/1.5 system-ui, sans-serif; }
   main { max-width: 780px; margin: 0 auto; }
@@ -139,7 +139,7 @@ if (graph === "circuit") {
   curve(n => calc(p.V, n, true).pe, A, C.good, 1, 4);
   dot(A, N, c.pe, C.bad, "now");
   ctx.font = "12px system-ui"; ctx.textAlign = "left"; ctx.fillStyle = C.accent; ctx.fillText("blue: series, P = V^2 / (N^2 R)", A.L + 10, A.T + 16);
-  ctx.fillStyle = C.good; ctx.fillText("green: parallel, P = V^2 / R (does not depend on N)", A.L + 10, A.T + 32);
+  ctx.fillStyle = C.good; ctx.fillText("orange: parallel, P = V^2 / R (does not depend on N)", A.L + 10, A.T + 32);
 }
 readout((par ? "parallel" : "series") + " &nbsp; R_total = " + (par ? R / N : N * R).toFixed(2) + " ohm &nbsp; battery current I = " + c.I.toFixed(3) + " A &nbsp; each bulb: " + c.ve.toFixed(2) + " V, " + c.pe.toFixed(3) + " W &nbsp; total power " + (N * c.pe).toFixed(2) + " W");
 

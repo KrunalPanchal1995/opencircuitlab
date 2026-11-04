@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Session 3: Thevenin equivalent and maximum power</title>
 <style>
-  :root { --bg:#ffffff; --fg:#14181f; --muted:#5b6472; --card:#f3f5f8; --accent:#1f6feb; --good:#1a7f37; --bad:#b42318; --line:#d7dce3; }
-  @media (prefers-color-scheme: dark) { :root { --bg:#0e1116; --fg:#e6e9ee; --muted:#9aa3b2; --card:#171b22; --accent:#58a6ff; --good:#3fb950; --bad:#f97066; --line:#2a313c; } }
+  :root { --bg:#ffffff; --fg:#14181f; --muted:#5b6472; --card:#f3f5f8; --accent:#003f7f; --good:#c86a00; --bad:#d81b60; --line:#d7dce3; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#0e1116; --fg:#e6e9ee; --muted:#9aa3b2; --card:#171b22; --accent:#3b8fe0; --good:#ffc857; --bad:#e0457b; --line:#2a313c; } }
   * { box-sizing: border-box; }
   body { margin:0; padding:16px; background:var(--bg); color:var(--fg); font:16px/1.5 system-ui, sans-serif; }
   main { max-width: 780px; margin: 0 auto; }
@@ -133,7 +133,7 @@ if (graph === "circuit") {
   curve(i => p.RL * i / 1000, A, C.good, 0, 125, 2);
   dot(A, 1000 * il, vl, C.bad, "operating point");
   ctx.font = "12px system-ui"; ctx.textAlign = "left"; ctx.fillStyle = C.accent; ctx.fillText("blue: V = Vth - Rth I (the network)", A.L + 10, A.T + 16);
-  ctx.fillStyle = C.good; ctx.fillText("green: V = RL I (the load)", A.L + 10, A.T + 32);
+  ctx.fillStyle = C.good; ctx.fillText("orange: V = RL I (the load)", A.L + 10, A.T + 32);
 } else {
   const ym = Math.max(1.15 * 1000 * pmax, 0.01);
   const A = axes({ x: [0, 5000], y: [0, ym], xl: "load resistance RL (ohm)", yl: "power in the load (mW)", title: "Load power peaks at RL = Rth" }, C);
