@@ -1,4 +1,4 @@
-# Activity sheet: opencircuitlab, Session 4: Read a netlist: text in, voltages out
+# Activity sheet: opencircuitlab, Session 5: A nonlinear part: the diode and Newton's method
 
 Name: ____________________   Date: ____________
 
