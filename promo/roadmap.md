@@ -2,16 +2,6 @@
 
 This is the path, not the code. Each milestone says what you learn, what you build, and how you know it works. Pick one and open a pull request. See [CONTRIBUTING.md](../CONTRIBUTING.md).
 
-## Session 5: A nonlinear part: the diode
-
-**You will learn:** Why a diode breaks G v = i, and how Newton's method repeats a linear solve until KCL holds.
-
-**You will build:** A diode stamp linearised at each iteration, solved inside a loop around the nodal solver.
-
-**Checkpoint (not met by the shipped code):** A 5 V source, a 1 kohm resistor and a diode converge to a KCL residual below 1e-9 A in at most 10 iterations (the shipped solver is linear and cannot represent a diode at all).
-
-**Difficulty:** intermediate
-
 ## Session 6: An amplifier from a controlled source
 
 **You will learn:** Dependent sources and the ideal operational amplifier as a very high gain voltage-controlled source.
