@@ -73,6 +73,12 @@ Run the lesson (`python start.py 1`), then open the live app: [Session 1: bulbs 
 
 **Experiment.** With a 4.5 V battery pack and two identical small torch bulbs, wire them first in series and then in parallel and compare their brightness by eye; unscrew one bulb in each arrangement and see what the other does. Measure the battery current with a multimeter if you have one. Expect the qualitative result of the model (dim and shared in series, bright in parallel, and one bulb failing kills the series chain only). The numbers will differ: a cold filament has a much lower resistance than a hot one, so the real current is larger than the model's the moment you switch on.
 
+**Optional: a real, hot filament.** The model bulb is a fixed 10 ohm. A real tungsten filament glows at about 2800 C and its resistance when hot is several times its resistance when cold. `hot_bulb_current(v)` in `lesson.py` uses the simple rule R = R_cold x (1 + a x P), where P is the power in the bulb, with the numbers chosen so that at 6 V the warm bulb is the same 10 ohm (R_cold = 1.43 ohm, a = 1.67 per W). At 6 V the first instant draws 6 / 1.43 = 4.2 A, and once the filament is hot the current settles at 0.6 A, as the model says. The rule is a teaching sketch, not measured bulb data: a real bulb heats up over a fraction of a second, and its resistance rises as roughly the temperature to the power 1.2, not linearly with power.
+
+![Real filament: current at switch-on and after warm-up, and the current against battery voltage.](../../docs/figures/s01_hot_bulb.png)
+
+*Real filament: current at switch-on and after warm-up, and the current against battery voltage.*
+
 ## F. Assessment and design challenge
 **Question type A: Conceptual.** In a series string of festival bulbs, one bulb fails by breaking its filament. Why do all the other bulbs go out, and why would they stay lit in a parallel string?
 

@@ -27,6 +27,20 @@ def run_checks(L):
     except ValueError:
         ok = True
     checks.append(("zero bulbs is rejected", ok))
+    # optional hot-bulb model (issue: real-bulb model)
+    h6 = L.hot_bulb_current(6.0)
+    checks.append((f"hot bulb at 6 V: warm current is 0.6 A like the 10 ohm model (got {h6['i_warm']:.3f})", abs(h6["i_warm"] - 0.6) < 1e-9))
+    checks.append((f"hot bulb at 6 V: switch-on current is 7 times the warm current (got {h6['i_on'] / h6['i_warm']:.2f})",
+                   abs(h6["i_on"] / h6["i_warm"] - 7.0) < 1e-9))
+    checks.append(("hot bulb: warm state satisfies P = v * i and R = r_cold * (1 + a * P)",
+                   abs(h6["p_warm"] - 6.0 * h6["i_warm"]) < 1e-9 and abs(h6["r_warm"] - L.R_COLD * (1 + L.A_HOT * h6["p_warm"])) < 1e-9))
+    h0 = L.hot_bulb_current(0.0)
+    checks.append(("hot bulb: no battery means no current", h0["i_on"] == 0.0 and h0["i_warm"] == 0.0))
+    hl = L.hot_bulb_current(0.05)
+    checks.append(("hot bulb at a tiny voltage barely warms: warm current is within 1 percent of the cold current",
+                   abs(hl["i_warm"] - hl["i_on"]) / hl["i_on"] < 0.01))
+    checks.append(("hot bulb: with no heating coefficient the warm current equals the cold current",
+                   abs(L.hot_bulb_current(6.0, a_hot=0.0)["i_warm"] - 6.0 / L.R_COLD) < 1e-9))
     return checks
 
 

@@ -80,6 +80,36 @@ def compare_table(v=6.0, counts=(1, 2, 3, 4)):
     return rows
 
 
+# %% [markdown]
+# ## Optional: a bulb whose resistance rises when it is hot
+# A real filament is a thin tungsten wire that glows at about 2800 C. Its resistance when hot
+# is several times its resistance when cold, so the current at the moment of switch-on is
+# much larger than the steady current. A simple model: R = R_COLD * (1 + A_HOT * P), where
+# P is the power in the bulb. We choose the numbers so that at 6 V the warm bulb is exactly our
+# 10 ohm model bulb: R_COLD = 10 / 7 ohm (hot resistance 7 times the cold one).
+
+# %%
+R_COLD = R_BULB / 7.0             # ohm, filament at room temperature
+A_HOT = (7.0 - 1.0) / 3.6         # 1/W: gives R = 10 ohm at P = 3.6 W (6 V on 10 ohm)
+
+
+def hot_bulb_current(v, r_cold=R_COLD, a_hot=A_HOT):
+    """One bulb whose resistance rises with its own power, on a battery of v volts.
+
+    Returns a dict: i_on (A, current in the first instant, filament still cold), i_warm (A,
+    after warm-up), r_warm (ohm) and p_warm (W). The steady state solves
+    P = v^2 / (r_cold * (1 + a_hot * P)), a quadratic in P with one positive root.
+    """
+    if v < 0 or r_cold <= 0 or a_hot < 0:
+        raise ValueError("need v >= 0, r_cold > 0 and a_hot >= 0")
+    if a_hot == 0:
+        p = v * v / r_cold
+    else:
+        p = (-r_cold + (r_cold ** 2 + 4.0 * a_hot * r_cold * v * v) ** 0.5) / (2.0 * a_hot * r_cold)
+    r_warm = r_cold * (1.0 + a_hot * p)
+    return {"i_on": v / r_cold, "i_warm": v / r_warm, "r_warm": r_warm, "p_warm": p}
+
+
 if __name__ == "__main__":
     import matplotlib.pyplot as plt
 
@@ -118,6 +148,29 @@ if __name__ == "__main__":
     ax2.legend()
     fig2.tight_layout()
     fig2.savefig(OUT / "series_power_vs_voltage.png", dpi=120)
+
+    # figure 3: a bulb whose resistance rises with temperature
+    fig3, ax3 = plt.subplots(1, 2, figsize=(9, 3.8))
+    vv = np.linspace(0, 8, 81)
+    hot = [hot_bulb_current(x) for x in vv]
+    ax3[0].plot(vv, [h["i_on"] for h in hot], "--", color="#c86a00", label="at switch-on (cold filament)")
+    ax3[0].plot(vv, [h["i_warm"] for h in hot], "-", color="#003f7f", label="after warm-up (hot filament)")
+    ax3[0].plot(vv, vv / R_BULB, ":", color="gray", label="fixed 10 ohm model")
+    ax3[0].set_xlabel("battery voltage (V)")
+    ax3[0].set_ylabel("current (A)")
+    ax3[0].set_title("Real filament: current against voltage")
+    ax3[0].grid(alpha=0.3)
+    ax3[0].legend(fontsize=8)
+    h6 = hot_bulb_current(6.0)
+    bars = ax3[1].bar(["switch-on", "after warm-up", "fixed 10 ohm"], [h6["i_on"], h6["i_warm"], 6.0 / R_BULB],
+                      color=["#c86a00", "#003f7f", "gray"])
+    for b, val in zip(bars, [h6["i_on"], h6["i_warm"], 6.0 / R_BULB]):
+        ax3[1].text(b.get_x() + b.get_width() / 2, val + 0.05, f"{val:.2f} A", ha="center", fontsize=9)
+    ax3[1].set_ylabel("current at 6 V (A)")
+    ax3[1].set_title("One bulb on 6 V: switch-on draws 7 times more", fontsize=10)
+    fig3.tight_layout()
+    fig3.savefig(OUT / "hot_bulb.png", dpi=120)
+    print(f"hot bulb at 6 V: switch-on {h6['i_on']:.2f} A, warm {h6['i_warm']:.2f} A, warm resistance {h6['r_warm']:.1f} ohm")
     print("saved figures in", OUT)
 
 # %% [markdown]
