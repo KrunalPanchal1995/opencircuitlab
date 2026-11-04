@@ -2,16 +2,6 @@
 
 This is the path, not the code. Each milestone says what you learn, what you build, and how you know it works. Pick one and open a pull request. See [CONTRIBUTING.md](../CONTRIBUTING.md).
 
-## Session 4: Read a netlist
-
-**You will learn:** How circuit simulators describe a circuit as lines of text (name, two nodes, value) and how to parse them.
-
-**You will build:** A function that reads lines such as 'R1 1 2 1k' and 'V1 1 0 12' and returns the input of the solver.
-
-**Checkpoint (not met by the shipped code):** The text form of the Session 2 two-loop circuit gives V_A = 6.545 V (the shipped solver only accepts Python lists of tuples), including 'k' and 'm' value suffixes.
-
-**Difficulty:** beginner
-
 ## Session 5: A nonlinear part: the diode
 
 **You will learn:** Why a diode breaks G v = i, and how Newton's method repeats a linear solve until KCL holds.

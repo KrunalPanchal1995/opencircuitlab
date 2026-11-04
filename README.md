@@ -9,15 +9,15 @@ opencircuitlab teaches circuit analysis from a battery and two bulbs to a matrix
 - **Start from a battery and a bulb.** Session 1 needs only Ohm's law; every symbol is explained from scratch.
 - **See it move.** Every session ships a slider app that runs in the browser, with labelled graphs and a challenge.
 - **Know you got it right.** Each session ends with a checkpoint that prints PASS or FAIL against hand calculations and conservation of energy.
-- **Build the missing half.** The repo stops at Session 3 on purpose; the roadmap shows the path to the Target.
+- **Build the missing half.** The repo stops at Session 4 on purpose; the roadmap shows the path to the Target.
 
 [Target](#the-target) · [Who is this for](#who-is-this-for) · [Quick start](#quick-start) · [Sessions](#sessions) · [Roadmap](#roadmap) · [Contribute](#contribute) · [Explainer PDF](docs/explainer.pdf)
 
-> **This repo is incomplete on purpose.** Sessions 1 to 3 are here and fully working. The finished Target below is a preview of what the community can build next. We show you the path, not the code. Sessions 4 and up are yours.
+> **This repo is incomplete on purpose.** Sessions 1 to 4 are here and fully working. The finished Target below is a preview of what the community can build next. We show you the path, not the code. Sessions 5 and up are yours.
 
 ## The Target
 
-An animated bridge circuit: one resistor is swept from 500 to 1500 ohm while every node voltage and every branch current is recomputed and drawn on the schematic. Beside it the Thevenin equivalent of the bridge output is drawn as a load line, with the operating point sliding along it, and a graph shows the output crossing zero at the balance point. Your goal over the coming sessions: build the solver behind it, then read circuits from a text netlist and animate any component sweep.
+An animated bridge circuit: one resistor is swept from 500 to 1500 ohm while every node voltage and every branch current is recomputed and drawn on the schematic. Beside it the Thevenin equivalent of the bridge output is drawn as a load line, with the operating point sliding along it, and a graph shows the output crossing zero at the balance point. Your goal over the coming sessions: after the solver of Session 3 and the netlist reader of Session 4, animate any component sweep.
 
 ![Target: sweeping one bridge resistor while node voltages, branch currents and the Thevenin load line update](promo/media/target.gif)
 
@@ -82,8 +82,9 @@ Every session also opens in your browser with sliders (no install): [live apps](
 | 1 | [A battery, a switch and bulbs: series and parallel](sessions/session-01/README.md) | Level 1: conceptual interactive model | 60 min | [open](https://krunalpanchal1995.github.io/opencircuitlab/session-01/) |
 | 2 | [Kirchhoff's laws, dividers and the loading effect](sessions/session-02/README.md) | Level 2: mathematical engineering model | 80 min | [open](https://krunalpanchal1995.github.io/opencircuitlab/session-02/) |
 | 3 | [Nodal analysis by matrix, Thevenin and the sensor bridge](sessions/session-03/README.md) | Level 3: simulation and validation | 90 min | [open](https://krunalpanchal1995.github.io/opencircuitlab/session-03/) |
+| 4 | [Read a netlist: text in, voltages out](sessions/session-04/README.md) | Level 3: simulation and validation | 90 min | [open](https://krunalpanchal1995.github.io/opencircuitlab/session-04/) |
 
-Each session follows the same six steps: A real-world problem, B concept and theory, C visual explanation, D interactive simulation, E worked example and experiment, F assessment and design challenge. Each ends with `checkpoint.py`, which prints `PASS` or `FAIL` against reference numbers. Session 3 also contains the real-world mini-project: **Design a Pt1000 temperature-sensor bridge**.
+Each session follows the same six steps: A real-world problem, B concept and theory, C visual explanation, D interactive simulation, E worked example and experiment, F assessment and design challenge. Each ends with `checkpoint.py`, which prints `PASS` or `FAIL` against reference numbers. Session 3 contains the real-world mini-project **Design a Pt1000 temperature-sensor bridge**; Session 4 adds **Debug the technician's bridge file**.
 
 ## Architecture
 
@@ -92,14 +93,15 @@ flowchart LR
   S1[Session 1<br/>A battery, a switch and bulbs: series and parallel]
   S2[Session 2<br/>Kirchhoff's laws, dividers and the loading effect]
   S3[Session 3<br/>Nodal analysis by matrix, Thevenin and the sensor bridge]
-  R[Roadmap S4+<br/>YOU build this]
+  S4[Session 4<br/>Read a netlist: text in, voltages out]
+  R[Roadmap S5+<br/>YOU build this]
   T((Target))
-  S1 --> S2 --> S3 --> R --> T
+  S1 --> S2 --> S3 --> S4 --> R --> T
 ```
 
 | Folder or file | What is inside |
 |---|---|
-| `sessions/` | three sessions: README (A-F), `lesson.py`, notebook, live app, exercises, activity sheet, checkpoint |
+| `sessions/` | four sessions: README (A-F), `lesson.py`, notebook, live app, exercises, activity sheet, checkpoint |
 | `promo/` | the Target: media, live links, and the roadmap (path only) |
 | `docs/` | `explainer.tex` and the built `explainer.pdf` |
 | `tests/` | runs every lesson and checkpoint headless |
@@ -111,7 +113,6 @@ flowchart LR
 
 | Milestone | What you will build | Difficulty |
 |---|---|---|
-| Session 4: Read a netlist | A function that reads lines such as 'R1 1 2 1k' and 'V1 1 0 12' and returns the input of the solver. | beginner |
 | Session 5: A nonlinear part: the diode | A diode stamp linearised at each iteration, solved inside a loop around the nodal solver. | intermediate |
 | Session 6: An amplifier from a controlled source | A controlled-source stamp and an inverting amplifier built with it. | intermediate |
 | Session 7: Sensitivity without Monte Carlo | A function returning dVout/dR for every resistor of any network. | advanced |

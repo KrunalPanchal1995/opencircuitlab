@@ -1,7 +1,7 @@
 [project]
 name = "opencircuitlab"
 version = "0.1.0"
-description = "Learn series, parallel, Kirchhoff's laws, nodal analysis and Thevenin equivalents, with a bridge sensor project, in 3 sessions."
+description = "Learn series, parallel, Kirchhoff's laws, nodal analysis and Thevenin equivalents, with a bridge sensor project, in 4 sessions."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
